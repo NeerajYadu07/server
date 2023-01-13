@@ -9,7 +9,7 @@ const mongodbPath="mongodb+srv://Neeraj:rr12@cluster0.a5mxi6b.mongodb.net/?retry
 mongoose.connect(mongodbPath).then(function(){
 
     app.get('/',function(req,res){
-        const response={message:"API Works!!!"} ;
+        const response={statuscode:res.statusCode,message:"API Works!!!"} ;
         res.send(response);
     });
     const noteRouter=require('./routes/Note');
