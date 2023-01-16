@@ -15,7 +15,8 @@ authRouter.post('/signup/user',(req,res)=>{
             if(user==null){
                 const user = User({
                     email:req.body.email,
-                    password:req.body.password
+                    password:req.body.password,
+                    room:req.body.room,
                 })
                 user.save()
                 .then((err)=>{

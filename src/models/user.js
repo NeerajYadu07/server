@@ -14,6 +14,12 @@ const userSchema = new Schema({
         // unique:true,
 
     },
+    room:{
+        type:String,
+        required:true,
+        // unique:true,
+
+    },
 })
 
 module.exports = mongoose.model('User',userSchema)
