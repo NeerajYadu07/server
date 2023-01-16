@@ -24,7 +24,7 @@ authRouter.post('/signup/user',(req,res)=>{
                         res.json(err)
                     }else{
                         console.log(user)
-                        res.json(user)
+                        res.status(202).json(user)
                     }
                     
                 })
@@ -72,7 +72,7 @@ authRouter.post('/signup/admin',(req,res)=>{
                         res.json(err)
                     }else{
                         console.log(admin)
-                        res.json(admin)
+                        res.status(202).json(admin)
                     }
                     
                 })
@@ -98,7 +98,7 @@ authRouter.post('/signin/admin',(req,res)=>{
         }    
         else{
             
-            res.json(admin)   
+            res.status(202).json(admin) ;  
         }
     })
 })
