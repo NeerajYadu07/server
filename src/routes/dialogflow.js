@@ -26,33 +26,21 @@ dfrouter.post('/send', express.json(), (req, res)=>{
         response : res
     });
 
+    var complaint = agent.contexts.get("Customcomplaint-followup").parameters['complaint'];
+
     function demo(agent){
-        agent.add("Sending response from Webhook server as v1.1.11.1");
+        agent.add("Your Message has been sent to admin");
     }
-    
-    const complaint = Complaint({
-        type:req.body.type,
-        description:req.body.desc,
-        room:req.body.room,
-    })
-    complaint.save()
-    
-    
-
-    
-
-
     var intentMap = new Map();
    
-    intentMap.set('demo',demo )
+    intentMap.set('Custom complaint',demo )
 
     
 
     agent.handleRequest(intentMap);
-    return db.collection('meeting').add({
-        name : "Neeraj",
-        email : "email@gmail.com",
-        time : Date.now()
+    return db.collection('custom').add({
+        desc:complaint,
+        
       }).then(ref =>
 
         //fetching free slots from G-cal
